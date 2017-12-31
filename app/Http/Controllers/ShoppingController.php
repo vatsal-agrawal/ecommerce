@@ -17,8 +17,19 @@ class ShoppingController extends Controller
         'name'=>$product->title,
         'qty' =>request()->qty,
         'price'=>$product->price,
-    ]);
+    ])->associate('App\Product');
 
-    dd(Cart::content());
+        
+    return redirect('/cart');
+   }
+
+   public function cart(){
+       
+       return view('cart');
+   }
+
+   public function delete($id){
+       Cart::remove($id);
+       return redirect()->back();
    }
 }

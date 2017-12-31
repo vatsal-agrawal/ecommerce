@@ -36,25 +36,25 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        @if (!Auth::guest())
+                        {{--  @if (!Auth::guest())  --}}
                         <li><a href="{{ route('products.index') }}">Products</a></li>
                         <li><a href="{{ route('products.create') }}">Create Product</a></li>
-                        
-                        @endif
+{{--                          
+                        @endif  --}}
                         
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
-                        @if (Auth::guest())
+                        {{--  @if (Auth::guest())  --}}
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
+                        {{--  @else  --}}
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{--  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+                                </a>  --}}
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
@@ -70,7 +70,7 @@
                                     </li>
                                 </ul>
                             </li>
-                        @endif
+                        {{--  @endif  --}}
                     </ul>
                 </div>
             </div>

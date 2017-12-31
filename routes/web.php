@@ -11,6 +11,18 @@
 |
 */
 
+Route::resource('/products', 'ProductsController');
+
+
+
+Route::get('/cart', [
+    'uses' => 'ShoppingController@cart',
+    'as'   => 'cart',
+]);
+
+
+
+
 Route::get('/', [
     'uses' => 'FrontEndController@index',
     'as'   => 'index',
@@ -21,12 +33,18 @@ Route::get('/{id}', [
     'as'   => 'product.index',
 ]);
 
+
+
 Route::post('/cart/add/{id}',[
     'uses' => 'ShoppingController@add_to_cart',
     'as'   => 'cart.add',
 ]);
 
-Route::resource('/products', 'ProductsController');
+Route::get('/cart/delete/{id}', [
+    'uses' => 'ShoppingController@delete',
+    'as'   => 'cart.delete',
+]);
+
 
 Auth::routes();
 
