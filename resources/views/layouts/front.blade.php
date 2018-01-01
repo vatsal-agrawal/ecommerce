@@ -5,20 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Seosight - Shop</title>
 
-    <link rel="stylesheet" type="text/css" href="app/css/fonts.css">
-    <link rel="stylesheet" type="text/css" href="app/css/crumina-fonts.css">
-    <link rel="stylesheet" type="text/css" href="app/css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="app/css/grid.css">
-    <link rel="stylesheet" type="text/css" href="app/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('app/css/fonts.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app/css/crumina-fonts.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app/css/normalize.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app/css/grid.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app/css/styles.css')}}">
 
 
     <!--Plugins styles-->
 
-    <link rel="stylesheet" type="text/css" href="app/css/jquery.mCustomScrollbar.min.css">
-    <link rel="stylesheet" type="text/css" href="app/css/swiper.min.css">
-    <link rel="stylesheet" type="text/css" href="app/css/primary-menu.css">
-    <link rel="stylesheet" type="text/css" href="app/css/magnific-popup.css">
-
+    <link rel="stylesheet" type="text/css" href="{{asset('app/css/jquery.mCustomScrollbar.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app/css/swiper.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app/css/primary-menu.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app/css/magnific-popup.css')}}">
+    {{--  <link rel='stylecheet' type='text/css'href = 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>  --}}
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     <!--Styles for RTL-->
 
     <!--<link rel="stylesheet" type="text/css" href="css/rtl.css">-->
@@ -43,16 +44,17 @@
 
                     <a href="#" class="js-cart-animate">
                         <i class="seoicon-basket"></i>
-                        <span class="cart-count">0</span>
+                        <span class="cart-count">{{Cart::content()->count()}}</span>
                     </a>
 
                     <div class="cart-popup-wrap">
                         <div class="popup-cart">
-                            <h4 class="title-cart">No products in the cart!</h4>
-                            <p class="subtitle">Please make your choice.</p>
+                            <h4 class="title-cart">${{Cart::total()}}</h4>
+                            <a href= "/ecommerce/public/cart">
                             <div class="btn btn-small btn--dark">
-                                <span class="text">view all catalog</span>
+                                <span class="text">View Cart</span>
                             </div>
+                            </a>
                         </div>
                     </div>
 
@@ -71,7 +73,7 @@
         <div class="row pt120">
             <div class="col-lg-8 col-lg-offset-2">
                 <div class="heading align-center mb60">
-                    <h4 class="h1 heading-title">Udemy E-commerce tutorial</h4>
+                    <h4 class="h1 heading-title">Online Book Store</h4>
                     <p class="heading-text">Buy books, and we ship to you.
                     </p>
                 </div>
@@ -101,19 +103,27 @@
 
 
 
-<script src="{{asset('app/js/jquery-2.1.4.min.js')}}"></script>
-<script src="{{asset('app/js/crum-mega-menu.js')}}"></script>
-<script src="{{asset('app/js/swiper.jquery.min.js')}}"></script>
-<script src="{{asset('app/js/theme-plugins.js')}}"></script>
-<script src="{{asset('app/js/main.js')}}"></script>
-<script src="{{asset('app/js/form-actions.js')}}"></script>
+<script src="{{URL::asset('app/js/jquery-2.1.4.min.js')}}"></script>
+<script src="{{URL::asset('app/js/crum-mega-menu.js')}}"></script>
+<script src="{{URL::asset('app/js/swiper.jquery.min.js')}}"></script>
+<script src="{{URL::asset('app/js/theme-plugins.js')}}"></script>
+<script src="{{URL::asset('app/js/main.js')}}"></script>
+<script src="{{URL::asset('app/js/form-actions.js')}}"></script>
 
-<script src="{{asset('app/js/velocity.min.js')}}"></script>
-<script src="{{asset('app/js/ScrollMagic.min.js')}}"></script>
-<script src="{{asset('app/js/animation.velocity.min.js')}}"></script>
-
+<script src="{{URL::asset('app/js/velocity.min.js')}}"></script>
+<script src="{{URL::asset('app/js/ScrollMagic.min.js')}}"></script>
+<script src="{{URL::asset('app/js/animation.velocity.min.js')}}"></script>
+{{--  <script src = 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>  --}}
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+        <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 <!-- ...end JS Script -->
 
+<script>
+    @if ($value = session('success'))
+        toastr.success('{{$value}}');
+
+    @endif
+</script>
 
 </body>
 

@@ -57,9 +57,9 @@
                                         <td class="product-quantity">
         
                                             <div class="quantity">
-                                                <a href="#" class="quantity-minus">-</a>
-                                                <input title="Qty" class="email input-text qty text" type="text" value ={{$product->qty}} placeholder="1" readonly>
-                                                <a href="#" class="quantity-plus">+</a>
+                                                <a href="{{route('cart.dec',[$product->rowId,$product->qty])}}" class="quantity-minus">-</a>
+                                                <input title="Qty" class="email input-text qty text" type="text" value = "{{$product->qty}}" placeholder="1" readonly>
+                                                <a href="{{route('cart.inc',[$product->rowId,$product->qty])}}" class="quantity-plus">+</a>
                                             </div>
         
                                         </td>
@@ -105,7 +105,7 @@
                             <h6 class="cart-total-total">SubTotal: <span class="price">${{Cart::subtotal()}}</span></h6>
                             <h6 class="cart-total-total">Tax: <span class="price">${{Cart::tax()}}</span></h6>
                             <h5 class="cart-total-total">Total: <span class="price">${{Cart::total()}}</span></h5>
-                            <a href="20_checkout.html" class="btn btn-medium btn--light-green btn-hover-shadow">
+                            <a href="{{route('cart.checkout')}}" class="btn btn-medium btn--light-green btn-hover-shadow">
                                 <span class="text">Checkout</span>
                                 <span class="semicircle"></span>
                             </a>

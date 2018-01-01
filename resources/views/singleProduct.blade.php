@@ -10,7 +10,7 @@
                             <div class="swiper-wrapper">
                                 <!-- Slides -->
                                 <div class="product-details-img-wrap swiper-slide">
-                                    <img src="app/img/product-details.png" alt="product" data-swiper-parallax="-10">
+                                    <img src="/ecommerce/public/images/{{$product->file->file}}" alt="product" data-swiper-parallax="-10">
                                 </div>
                             </div>
                         </div>
@@ -27,9 +27,9 @@
                     <form action= "{{route('cart.add',[$product->id])}}" method='post'>
                         {{csrf_field()}}
                         <div class="quantity">
-                            <a href="#" class="quantity-minus">-</a>
+                            <a href="#" class="quantity-minus quantity-minus-d">-</a>
                             <input title="Qty" class="email input-text qty text" name = 'qty'type="text" value="1">
-                            <a href="#" class="quantity-plus">+</a>
+                            <a href="#" class="quantity-plus quantity-plus-d">+</a>
                         </div>
     
                         <button class="btn btn-medium btn--primary">
